@@ -76,8 +76,8 @@ public class MeetingService {
     public void bookRecurringMeeting(Long userId, Long mentorId, LocalDateTime startDate, int interval, int durationInMonths) {
         // Implement recurring booking logic here
         LocalDateTime currentDateTime = startDate;
-
-        for (int i = 0; i < durationInMonths; i++) {
+        int totalMeets = interval * 4 * durationInMonths;
+        for (int i = 0; i < totalMeets; i++) {
             Meeting meeting = new Meeting();
             meeting.setUserId(userId);
             meeting.setMentorId(mentorId);
