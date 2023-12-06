@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://lpt-frontend.vercel.app/")
 @RestController
 @RequestMapping("/api/meetings")
 public class MeetingController {
