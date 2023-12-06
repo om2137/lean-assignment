@@ -31,7 +31,6 @@ public class MeetingService {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
 
-            // Configure ObjectMapper to handle Java 8 date/time types
             objectMapper.registerModule(new JavaTimeModule());
             objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -41,7 +40,7 @@ public class MeetingService {
                     Meeting[].class
             ));
 
-            // Save meetings to the database
+            // Saves meetings to the database
             meetingRepository.saveAll(meetings);
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,12 +52,12 @@ public class MeetingService {
     }
 
     public void cancelMeeting(Long meetingId) {
-        // Implement cancellation logic here
+        // Implemented cancellation logic here
         meetingRepository.deleteById(meetingId);
     }
 
     public void rescheduleMeeting(Long meetingId, LocalDateTime newDateTime) {
-        // Implement rescheduling logic here
+        // Implemented rescheduling logic here
         Meeting meeting = meetingRepository.getById(meetingId);
         meeting.setDate(newDateTime);
         meetingRepository.save(meeting);
@@ -74,7 +73,7 @@ public class MeetingService {
     }
 
     public void bookRecurringMeeting(Long userId, Long mentorId, LocalDateTime startDate, int interval, int durationInMonths) {
-        // Implement recurring booking logic here
+        // Implemented recurring booking logic here
         LocalDateTime currentDateTime = startDate;
         int totalMeets = interval * 4 * durationInMonths;
         for (int i = 0; i < totalMeets; i++) {

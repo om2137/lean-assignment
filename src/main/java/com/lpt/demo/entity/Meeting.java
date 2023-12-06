@@ -86,6 +86,4 @@ public class Meeting {
         this.durationInMonths = durationInMonths;
     }
 
-    // Constructors
-    // toString, equals, hashCode methods if needed
 }
